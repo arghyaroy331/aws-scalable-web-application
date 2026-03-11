@@ -17,7 +17,7 @@ Services Used
 - CloudFormation – Infrastructure automation
 
 ## Architecture
-![AWS Architecture](architecture-diagram.jpeg)
+![AWS Architecture](architecture diagram.jpeg)
 
 The architecture uses EC2 instances behind an Application Load Balancer inside a VPC. Static files are stored in S3 and the database is hosted on Amazon RDS. Serverless processing is implemented with Lambda, SNS, and SQS.
 
