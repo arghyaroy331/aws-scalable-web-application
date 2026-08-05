@@ -69,7 +69,7 @@ Traditional web applications hosted on a single server often face:
 - ❌ Manual resource provisioning
 - ❌ Poor storage management
 
-✅ This project solves these issues by deploying the application using AWS cloud services with a **modular architecture** and **infrastructure automation**.
+This project solves these issues by deploying the application using AWS cloud services with a **modular architecture** and **infrastructure automation**.
 
 ---
 
