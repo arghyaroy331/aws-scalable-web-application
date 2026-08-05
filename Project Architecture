@@ -1,0 +1,74 @@
+ 🏗️ AWS Architecture
+
+
+                           👥 Users
+                               │
+                               ▼
+                   ⚖️ Application Load Balancer (ALB)
+                               │
+                               ▼
+                  💻 Amazon EC2 (Web Server)
+                               │
+          ┌────────────────────┼────────────────────┐
+          │                    │                    │
+          ▼                    ▼                    ▼
+     🪣 Amazon S3        🗄️ Amazon RDS       ⚡ AWS Lambda
+   (Static Assets)       (MySQL Database)  (Image Processing)
+                                                    │
+                                                    ▼
+                                              📬 Amazon SQS
+                                                    │
+                                                    ▼
+                                              📢 Amazon SNS
+
+                               │
+                               ▼
+                      📊 Amazon CloudWatch
+                     (Monitoring & Alerts)
+
+────────────────────────────────────────────────────────────
+
+🏢 Infrastructure Layer
+
+🔐 IAM
+🌐 VPC
+🌍 Public Subnet
+🔒 Private Subnet
+🛡️ Security Groups
+💾 Amazon EBS
+🔑 AWS KMS
+📦 AWS CloudFormation
+💻 AWS CLI
+```
+
+
+Architecture Description
+
+User Layer
+Users access the blog application through an Application Load Balancer (ALB),
+which distributes incoming requests to the backend web server.
+
+Compute Layer
+The application runs on an Amazon EC2 instance inside a Virtual Private Cloud (VPC).
+An Amazon EBS volume provides persistent storage for the operating system and application files.
+
+Networking Layer
+A custom Amazon VPC contains Public and Private Subnets. 
+Security Groups control inbound and outbound traffic to protect AWS resources.
+
+Storage Layer
+Amazon S3 stores static assets such as blog images and website content with versioning and encryption enabled.
+
+Database Layer
+Amazon RDS (MySQL) stores blog posts, user information, and application data, providing managed database services with automated backups.
+
+Serverless Layer
+When new images are uploaded to Amazon S3, an AWS Lambda function is triggered automatically.
+Background tasks are handled using Amazon SQS, while Amazon SNS sends notifications for important application events.
+
+Monitoring & Security
+Amazon CloudWatch collects metrics, monitors EC2 performance, and triggers alarms based on defined thresholds.
+Security is enforced through IAM, Security Groups, and AWS KMS for encryption.
+
+Infrastructure as Code
+The cloud infrastructure is provisioned using AWS CloudFormation, while AWS CLI is used for deployment and management.
